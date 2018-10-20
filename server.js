@@ -3,6 +3,7 @@ const app = express();
 var bodyParser = require('body-parser');
 var userRoutes = require('./routes/users');
 var donateRoutes=require('./routes/donate');
+var movementRoutes=require('./routes/movement');
 // var postRoutes = require('./routes/posts');
 // var tagRoutes = require('./routes/tags');
 var mongoose = require('mongoose');
@@ -39,7 +40,7 @@ app.use(bodyParser.json());
 // //Setting up Routers
 app.use('/users', userRoutes);
 app.use('/donate', donateRoutes);
-// app.use('/tags', tagRoutes);
+app.use('/movement', movementRoutes);
 
 
 app.get('/', (req, res) => {
