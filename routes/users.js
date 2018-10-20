@@ -6,7 +6,7 @@ var jwt = require('jsonwebtoken');
 var verifyToken = require('../middleware/auth');
 var async = require("async");
 var nodemailer = require("nodemailer");
-var crypto = require("crypto");
+const crypto = require("crypto");
 
 
 
