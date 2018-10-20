@@ -248,7 +248,6 @@ router.get('/forgot', function (req, res) {
           service: 'gmail',
           host: 'smtp.gmail.com',
           auth: {
-            user: 'webdev3211@gmail.com',
             pass: 'simplepassword'
           }
   
@@ -256,7 +255,6 @@ router.get('/forgot', function (req, res) {
         });
         var mailOptions = {
           to: user.email,
-          from: 'webdev3211@gmail.com',
           subject: 'Node.js Password Reset',
           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
