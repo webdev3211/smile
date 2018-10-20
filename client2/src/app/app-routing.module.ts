@@ -12,6 +12,16 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DonationsComponent } from './components/donations/donations.component';
+import { MoneyComponent } from './components/donations/money/money.component';
+import { FoodComponent } from './components/donations/food/food.component';
+import { ClothesComponent } from './components/donations/clothes/clothes.component';
+import { BooksComponent } from './components/donations/books/books.component';
+import { ElectronicsComponent } from './components/donations/electronics/electronics.component';
+import { OthersComponent } from './components/donations/others/others.component';
+import { FormComponent } from './donations/form/form.component';
+import { MovementsComponent } from './movements/movements.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 
 
@@ -35,6 +45,65 @@ const appRoutes: Routes = [
         component: ProfileComponent,
         canActivate: [NotAuthGuard]
     },
+    {
+        path: 'donations',
+        component: DonationsComponent,
+        // canActivate: [NotAuthGuard]
+    },
+    {
+        path: 'movements',
+        component: MovementsComponent,
+    },
+    {
+        path: 'volunteer',
+        component: VolunteerComponent,
+    },
+    {
+        path: 'donations/form',
+        component: FormComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'donations/money',
+        component: MoneyComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'donations/food',
+        component: FoodComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'donations/clothes',
+        component: ClothesComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'donations/books',
+        component: BooksComponent,
+        canActivate: [AuthGuard]
+
+    },
+    {
+        path: 'donations/electronics',
+        component: ElectronicsComponent,
+        canActivate: [NotAuthGuard]
+    },
+    {
+        path: 'donations/others',
+        component: OthersComponent,
+        // canActivate: [NotAuthGuard]
+    },
+    {
+        path: 'donations/form',
+        component: FormComponent,
+        canActivate: [NotAuthGuard]
+    },
+
 
     {
         path: '*',
