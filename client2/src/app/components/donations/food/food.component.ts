@@ -21,6 +21,7 @@ export class FoodComponent implements OnInit {
     })
   }
 
+
   ngOnInit() {
     this.getAllFood();
   }

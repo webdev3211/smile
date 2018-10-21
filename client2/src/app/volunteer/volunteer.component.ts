@@ -27,21 +27,14 @@ export class VolunteerComponent implements OnInit {
 
 
 
-  tagselected;
-
   messageClass;
   message;
-  loadingBlogs = false;
+
   form;
   logedinuserid;
   commentForm;
   processing = false;
   name;
-
-  tags;
-
-
-
 
 
 
@@ -50,6 +43,10 @@ export class VolunteerComponent implements OnInit {
 
   createNewVolunteerForm() {
     this.form = this.formBuilder.group({
+
+      category: ['', Validators.compose([
+        Validators.required,
+      ])],
       name: ['', Validators.compose([
         Validators.required,
       ])],
@@ -61,10 +58,7 @@ export class VolunteerComponent implements OnInit {
       ])],
       address: ['', Validators.compose([
         Validators.required,
-      ])],
-      category: ['', Validators.compose([
-        Validators.required,
-      ])],
+      ])]
 
     })
   }
@@ -73,22 +67,24 @@ export class VolunteerComponent implements OnInit {
 
   // Enable new blog form
   enableFormNewBlogForm() {
+    this.form.get('category').enable(); //Enable tag field
+
     this.form.get('name').enable(); // Enable title field
     this.form.get('description').enable(); // Enable content field
     this.form.get('contact').enable(); //Enable tag field
 
     this.form.get('address').enable(); // Enable title field
-    this.form.get('category').enable(); //Enable tag field
   }
 
   // Disable new blog form
   disableFormNewBlogForm() {
+    this.form.get('category').disable(); //Enable tag field
+
     this.form.get('name').disable(); // disable title field
     this.form.get('description').disable(); // disable content field
     this.form.get('contact').disable(); //disable tag field
 
     this.form.get('address').disable(); // disable title field
-    this.form.get('category').disable(); //Enable tag field
 
   }
 
@@ -117,10 +113,10 @@ export class VolunteerComponent implements OnInit {
           this.processing = false;
         this.enableFormNewBlogForm();
       } else {
+
         this.messageClass = 'alert alert-success',
           this.message = data.message,
-          // this.getAllBlogs();
-          //Clear form data after two seconds
+
           setTimeout(() => {
             this.processing = false;
             this.message = false;
@@ -134,6 +130,7 @@ export class VolunteerComponent implements OnInit {
     });
   }
 
+
   // Function to go back to previous page
   goBack() {
     window.location.reload(); // Clear all variable states
@@ -144,15 +141,10 @@ export class VolunteerComponent implements OnInit {
 
 
   ngOnInit() {
-
-
     this.authService.getProfile().subscribe(profile => {
       this.name = profile.user.name;
       this.logedinuserid = profile.user._id
     });
-
-
-    // this.getAllBlogs();
   }
 
 

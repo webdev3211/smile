@@ -48,6 +48,22 @@ export class DonationsService {
   getAllClothes() {
     this.createAuthenticationHeaders();
     return this.http.get(this.domain + 'donates/cloth', this.options).map(res => res.json())
+  }
+
+  getAllBooks() {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'donates/books', this.options).map(res => res.json())
+  }
+
+  getAllElectronics() {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'donates/electronics', this.options).map(res => res.json())
+  }
+
+
+  getAllOthers() {
+    this.createAuthenticationHeaders();
+    return this.http.get(this.domain + 'donates/others', this.options).map(res => res.json())
 
   }
 

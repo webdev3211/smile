@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 // //Setting up Routers
 app.use('/users', userRoutes);
-app.use('/donate', donateRoutes);
+app.use('/donates', donateRoutes);
 app.use('/movement', movementRoutes);
 app.use('/volunteer', volunteerRoutes);
 app.use('/category', categoryRoutes);

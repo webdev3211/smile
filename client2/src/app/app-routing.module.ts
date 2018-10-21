@@ -22,6 +22,7 @@ import { OthersComponent } from './components/donations/others/others.component'
 import { FormComponent } from './donations/form/form.component';
 import { MovementsComponent } from './movements/movements.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
+import { DevelopersComponent } from './components/developers/developers.component';
 
 
 
@@ -41,22 +42,30 @@ const appRoutes: Routes = [
         canActivate: [NotAuthGuard]
     },
     {
+        path: 'developers',
+        component: DevelopersComponent,
+        // canActivate: [NotAuthGuard]
+    },
+    {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [NotAuthGuard]
     },
     {
         path: 'donations',
         component: DonationsComponent,
-        // canActivate: [NotAuthGuard]
+        canActivate: [NotAuthGuard]
     },
     {
         path: 'movements',
         component: MovementsComponent,
+        canActivate: [NotAuthGuard]
+
     },
     {
         path: 'volunteer',
         component: VolunteerComponent,
+        canActivate: [NotAuthGuard]
+
     },
     {
         path: 'donations/form',
@@ -91,17 +100,20 @@ const appRoutes: Routes = [
     {
         path: 'donations/electronics',
         component: ElectronicsComponent,
-        canActivate: [NotAuthGuard]
+        canActivate: [AuthGuard]
+
     },
     {
         path: 'donations/others',
         component: OthersComponent,
-        // canActivate: [NotAuthGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'donations/form',
         component: FormComponent,
-        canActivate: [NotAuthGuard]
+        canActivate: [AuthGuard]
+
+
     },
 
 
@@ -110,6 +122,7 @@ const appRoutes: Routes = [
         component: HomeComponent
     }
 ];
+
 
 @NgModule({
     declarations: [],
