@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DonationsService } from '../../../services/donations.service';
 
 @Component({
   selector: 'app-others',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OthersComponent implements OnInit {
 
-  constructor() { }
+  allothers;
+
+  constructor(
+    private donateService: DonationsService
+  ) { }
+
+
+  getAllOthers() {
+    this.donateService.getAllOthers().subscribe(data => {
+      this.allothers = data.data;
+    })
+  }
+
 
   ngOnInit() {
+    this.getAllOthers();
   }
+
 
 }

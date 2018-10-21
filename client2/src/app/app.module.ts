@@ -36,6 +36,7 @@ import { MovementsService } from './services/movements.service';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerformComponent } from './volunteer/volunteerform/volunteerform.component';
 import { VolunteerService } from './services/volunteer.service';
+import { DevelopersComponent } from './components/developers/developers.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { VolunteerService } from './services/volunteer.service';
     FormComponent,
     MovementsComponent,
     VolunteerComponent,
-    VolunteerformComponent
+    VolunteerformComponent,
+    DevelopersComponent
   ],
   imports: [
     BrowserModule,

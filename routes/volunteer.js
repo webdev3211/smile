@@ -15,7 +15,7 @@ var crypto = require("crypto");
 //=============================================
 //Post volunteering
 //=============================================
-router.post('/', (req, res, next) => {
+router.post('/createVolunteer', (req, res, next) => {
     var volunteer = new Volunteer({
         category: req.body.category,
         name: req.body.name,
@@ -27,19 +27,21 @@ router.post('/', (req, res, next) => {
     volunteer.save().then(data => {
             res.status(200).json({
                 success: true,
-                data: data
+                data: data,
+                message: 'Volunteerv form submitted successfully'
             });
         })
         .catch(err => {
             res.status(501).json({
                 success: false,
-                error: "Unable to Submit Volnteer form"
+                error: "Unable to Submit Volnteer form",
+                message: 'Volunteer form submitted could not be submitted'
             });
         });
+
 });
 
 // router.get('/:CatId',(req,res,next)=>{
 
 // })
 module.exports = router;
-// ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ ++ +

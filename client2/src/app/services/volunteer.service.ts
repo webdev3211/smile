@@ -40,7 +40,7 @@ export class VolunteerService {
 
   newVolunteer(volunteerdetails) {
     this.createAuthenticationHeaders();
-    return this.http.post(this.domain + 'volunteer/', volunteerdetails, this.options).map(res => res.json())
+    return this.http.post(this.domain + 'volunteer/createVolunteer', volunteerdetails, this.options).map(res => res.json())
   }
 
 
