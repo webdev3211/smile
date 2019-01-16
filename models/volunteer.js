@@ -1,24 +1,20 @@
 var mongoose = require('mongoose');
-var donateSchema = mongoose.Schema({
+var volunteerSchema = mongoose.Schema({
     category: {
         type: String,
-        // required: true
+        required: true
     },
     name: {
         type: String,
-        // required: true,
+        required: true,
     },
     address: {
         type: String,
-        // required: true
+        required: true
     },
     contact: {
         type: String, //Number,
-        // required: true
-    },
-    donater: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        required: true
     },
     createdAt: {
         type: Date,
@@ -26,7 +22,8 @@ var donateSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        // required: true
-    }
+        required: true
+    },
+
 });
-module.exports = mongoose.model('Donate', donateSchema);
+module.exports = mongoose.model('Volunteer', volunteerSchema);

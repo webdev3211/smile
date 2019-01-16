@@ -2,16 +2,17 @@ const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
 var userRoutes = require('./routes/users');
-var donateRoutes=require('./routes/donate');
-// var postRoutes = require('./routes/posts');
-// var tagRoutes = require('./routes/tags');
+var donateRoutes = require('./routes/donate');
+var movementRoutes = require('./routes/movement');
+var volunteerRoutes = require('./routes/volunteer');
+var postRoutes = require('./routes/posts');
+var tagRoutes = require('./routes/tags');
+var categoryRoutes = require('./routes/category');
 var mongoose = require('mongoose');
 var jsonwebtoken = require('jsonwebtoken');
 const cors = require('cors');
-
-
 const path = require('path');
-const querystring = require('querystring');
+// const querystring = require('querystring');
 
 
 //Setting Up Database
@@ -38,12 +39,15 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 // //Setting up Routers
 app.use('/users', userRoutes);
-app.use('/donate', donateRoutes);
-// app.use('/tags', tagRoutes);
-
+app.use('/donates', donateRoutes);
+app.use('/movement', movementRoutes);
+app.use('/volunteer', volunteerRoutes);
+app.use('/category', categoryRoutes);
+app.use('/posts', postRoutes);
+app.use('/tags', tagRoutes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/src/index.html'));
+    res.sendFile(path.join(__dirname + '/client2/src/index.html'));
 });
 
 

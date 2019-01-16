@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <div style="margin-left: 15px;">
+        <h1>
+          Tell us What you want to volunteer for ?
+        </h1>
+        <br>
+        <hr>
+
+        <!-- Custom Success/Error Message -->
+        <div class="row show-hide-message" *ngIf="message">
+          <div [ngClass]="messageClass">
+            {{ message }}
+          </div>
+        </div>
+
+        <br>
+
+        <!-- New Blog Form -->
+        <form [formGroup]="form" name="blogForm" (submit)="onVolunteerFormSubmit()">
+
+
+          
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <div [ngClass]="{'has-error': (form.controls.category.errors?.required && form.controls.category.dirty) , 'has-success': !form.controls.category.errors?.required }">
+                  <input type="text" name="category" class="form-control" placeholder="*What's your programming question? Be specific." autocomplete="off"
+                    formControlName="category" />
+                  <ul class="help-block">
+                    <li *ngIf="form.controls.category.dirty && form.controls.category.errors?.required">This field is required.</li>
+                  </ul>
+                </div>
+              </div>
+          
+          <!-- Title Input -->
+          <div class="form-group">
+            <label for="name">Name</label>
+            <div [ngClass]="{'has-error': (form.controls.name.errors?.required && form.controls.name.dirty) , 'has-success': !form.controls.name.errors?.required }">
+              <input type="text" name="name" class="form-control" placeholder="*What's your programming question? Be specific." autocomplete="off"
+                formControlName="name" />
+              <ul class="help-block">
+                <li *ngIf="form.controls.name.dirty && form.controls.name.errors?.required">This field is required.</li>
+              </ul>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <div [ngClass]="{'has-error': (form.controls.contact.errors?.required && form.controls.contact.dirty) , 'has-success': !form.controls.contact.errors?.required }">
+              <input type="text" name="contact" class="form-control" placeholder="*What's your programming question? Be specific." autocomplete="off"
+                formControlName="contact" />
+              <ul class="help-block">
+                <li *ngIf="form.controls.contact.dirty && form.controls.contact.errors?.required">This field is required.</li>
+              </ul>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="form-group">
+            <label for="address"> Address </label>
+            <div [ngClass]="{'has-error': (form.controls.address.errors?.required && form.controls.address.dirty) , 'has-success': !form.controls.address.errors?.required }">
+              <textarea name="address" rows="8" cols="80" placeholder="Write yuor question address here...." class="form-control" formControlName="address"></textarea>
+              <ul class="help-block">
+                <li *ngIf="form.controls.address.dirty && form.controls.address.errors?.required">This field is required.</li>
+                <!-- <li *ngIf="form.controls.content.dirty">Start writing from second line</li> -->
+              </ul>
+            </div>
+          </div>
+
+
+          <!-- Body Input -->
+          <div class="form-group">
+            <label for="description">Descriptiom</label>
+            <div [ngClass]="{'has-error': (form.controls.description.errors?.required && form.controls.description.dirty) , 'has-success': !form.controls.description.errors?.required }">
+              <textarea name="description" rows="8" cols="80" placeholder="Write yuor question description here...." class="form-control"
+                formControlName="description"></textarea>
+              <ul class="help-block">
+                <li *ngIf="form.controls.description.dirty && form.controls.description.errors?.required">This field is required.</li>
+                <!-- <li *ngIf="form.controls.content.dirty">Start writing from second line</li> -->
+              </ul>
+            </div>
+          </div>
+
+          <br>
+          <br>
+
+
+
+          <br>
+          <br>
+          <!-- Submit Button -->
+          <button type="submit" name="button" class="btn btn-success">Submit Form</button>
+        </form>
+
+      </div>
+
+      <div style="margin-top: 100px;">
+
+      </div>
+
+    </div>
+  </div>
+</div>

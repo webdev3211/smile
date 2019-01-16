@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+
+    <div *ngFor="let book of allbooks">
+
+      <div class="content panel-group" style="margin-left: 55px;">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center"> {{ book.name }}</div>
+          <div class="panel-body">
+            <b>
+              {{ book.address }}
+            </b>
+            <p>
+              {{ book.contact }}
+            </p>
+
+            <p>
+              {{ book.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+</div>
+
+
+<style>
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    /* max-width: 20px; */
+  }
+
+</style>
